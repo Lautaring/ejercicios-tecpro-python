@@ -1,0 +1,21 @@
+import datetime
+
+class Persona:
+    def __init__(self, nombre, apellido, fecha_nacimiento):
+        self.m_nombre = nombre
+        self.m_apellido = apellido
+        self.m_fecha_nacimiento = fecha_nacimiento
+        self.m_edad = self._calcular_edad()
+        # Completar
+    def _calcular_edad(self):
+        fecha_actual = datetime.date.today()
+        return fecha_actual.year - self.m_fecha_nacimiento.year - ((fecha_actual.month, fecha_actual.day) < (self.m_fecha_nacimiento.month, self.m_fecha_nacimiento.day)) 
+
+    def mostrar(self):
+        print(self.m_nombre, self.m_apellido, ":", self.m_edad, "años.")
+
+
+if __name__ == "__main__":
+    fecha_nacimiento = datetime.date(2001, 8, 3)
+    persona1 = Persona("Lautaro", "Rodriguez", fecha_nacimiento)
+    persona1.mostrar()

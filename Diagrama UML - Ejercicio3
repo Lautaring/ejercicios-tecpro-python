@@ -1,0 +1,68 @@
+import datetime
+
+class Alumno:
+    def __init__(self, nombre, dni, fecha_nacimiento):
+        self.m_nombre = nombre
+        self.m_dni = dni
+        self.m_fecha_nacimiento = fecha_nacimiento
+        self.m_fecha_inscripcion = None
+
+        
+class Facultad:
+    def __init__(self, nombre_facultad):
+        self.m_nombref = nombre_facultad
+        self.m_carreras = []
+    def mostrarCarrerasyAlumnos(self):
+        print("Facultad: ", self.m_nombref)
+        for carrera in self.m_carreras:
+            print(f"Carrera: {carrera.m_nombre_carrera}")
+            print(f"Alumnos: ")
+            for alumno in carrera.alumnos():
+                print(f"- {alumno.m_nombre} - {alumno.m_fecha_nacimiento.day}/{alumno.m_fecha_nacimiento.month}/{alumno.m_fecha_nacimiento.year}")
+    def inscripciones(self, fecha, carrera, alumno):
+        alumno.m_fecha_inscripcion = fecha
+        carrera.m_alumnos.append(alumno)
+
+
+        
+class Carrera:
+    def __init__(self, nombre_carrera):
+        self.m_nombre_carrera = nombre_carrera
+        self.m_alumnos = []
+
+    def alumnos(self):
+        return self.m_alumnos
+        
+
+
+# Completar
+
+# Crear facultad
+facultad = Facultad("FICH")
+# Crear carreras
+informatica = Carrera("Ingeniería en Informática")
+recursos_hidricos = Carrera("Ingeniería en Recursos Hidricos") 
+
+# Cargar carreras a la facultad
+facultad.m_carreras.append(informatica)
+facultad.m_carreras.append(recursos_hidricos)
+
+# Crear alumnos
+alumno1 = Alumno("Alumno1", "11.111.111", datetime.date(1990, 11, 11))
+alumno2 = Alumno("Alumno2", "22.222.222", datetime.date(1990, 12, 12))
+alumno3 = Alumno("Alumno3", "33.333.333", datetime.date(1987, 8, 15))
+alumno4 = Alumno("Alumno4", "44.444.444", datetime.date(1988, 10, 10))
+
+# Crear inscripciones, agregar a facultad, etc..
+fecha = datetime.date.today()
+facultad.inscripciones(fecha, informatica, alumno1)
+facultad.inscripciones(fecha, informatica, alumno2)
+facultad.inscripciones(fecha, recursos_hidricos, alumno3)
+facultad.inscripciones(fecha, recursos_hidricos, alumno4)
+
+
+# Completar
+
+# Mostrar información
+facultad.mostrarCarrerasyAlumnos()
+

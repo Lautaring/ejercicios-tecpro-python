@@ -1,0 +1,29 @@
+class Persona:
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        # Completar
+        self.edad = int(edad)
+
+class Principal:
+    def __init__(self):
+        self #borrar y completar
+
+    def ejecutar(self):
+        # Crear dos objetos Persona
+        persona1 = Persona("Lautaro", 22)
+        persona2 = Persona("Nahuel", 20)
+        # Completar
+
+        # Imprimir la identidad de los objetos
+        print(f"Identidad de persona1: {persona1.nombre},{persona1.edad}")  # Completar
+        print(f"Identidad de persona2: {persona2.nombre},{persona2.edad}") 
+        # Verificar si los objetos son iguales
+        if persona1.nombre == persona2.nombre and persona1.edad == persona2.edad:
+            print("Son la misma persona")
+        else:
+            print("Son personas diferentes")
+
+if __name__ == "__main__":
+    principal = Principal()
+    principal.ejecutar()
+
